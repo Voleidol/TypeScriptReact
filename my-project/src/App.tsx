@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Navbar } from './components/Navbar';
+import { TodoForm } from './components/TodoForm';
 
 
-const App() {
+const App: React.FC = () => {
+  const [todos, setTodos] = useState([])
+
+  const addHandler = (title: string) => {
+    console.log('Add New Todo', title)
+  }
+
   return (
-    <h1>Hello TS</h1>
+    <>
+      <Navbar />
+      <div className="container">
+          <TodoForm onAdd={addHandler}/>
+      </div>
+    </>
   );
+
 }
 
 export default App;
